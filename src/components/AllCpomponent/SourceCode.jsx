@@ -1,0 +1,33 @@
+import React from 'react'
+import styled from 'styled-components'
+
+const ButtonStyle = styled.div`
+margin-top: 2rem;
+    .button{
+        font-size: 3.2rem;
+        background-color: ${(props) => props.outline ? 'transperant' : 'var(--gray-1)'};
+        padding: 0.2em 1em;
+        border-radius: 8px;
+        display: inline-block;
+        border: 2px solid var(--gray-1);
+        color: ${(props) => props.outline ? 'var(--gray-1)' : 'black'};
+        transition: 0.5s ease-in-out;
+    }
+    .button:hover{
+        box-shadow: ${(props) => props.outline ? 'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, #fff 0px 18px 36px -18px inset' : 'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, #000 0px 18px 36px -18px inset'} ;
+        transition: opacity 0.5s ease-in-out; 
+    }
+    @media only screen and (max-width: 768px){
+            .button{
+                font-size: 1.8rem;
+            }
+        }
+`
+
+export default function SourceCode({ btnLink='link', btnText='Button', outline=false, }) {
+  return (
+    <ButtonStyle outline={outline} className='button-wrapper' >
+      <p className='button'><a href={btnLink}>{btnText}</a></p>
+    </ButtonStyle>
+  )
+}
